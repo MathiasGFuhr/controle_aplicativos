@@ -3,7 +3,6 @@ import { SubscriberCard } from '../components/SubscriberCard';
 import { SubscriberForm } from '../components/SubscriberForm';
 import { DeleteConfirmationModal } from '../components/DeleteConfirmationModal';
 import { DashboardHeader } from '../components/DashboardHeader';
-import { useAuth } from '../contexts/AuthContext';
 import { getSubscribers, deleteSubscriber } from '../services/subscriberService';
 import { Subscriber } from '../types/subscriber';
 

@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { Subscriber } from '../types/subscriber';
 
 interface DashboardHeaderProps {

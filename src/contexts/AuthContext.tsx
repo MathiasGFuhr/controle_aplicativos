@@ -86,10 +86,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       if (signUpError) {
-        console.error('Erro no signup:', signUpError);
-        if (signUpError.message?.includes('48 seconds')) {
-          throw new Error('COOLDOWN_ERROR');
-        }
         throw new Error(signUpError.message);
       }
 
@@ -97,7 +93,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         throw new Error('Falha ao criar usuário');
       }
 
-      // Criar o perfil do usuário
       const { error: profileError } = await supabase
         .from('profiles')
         .insert({
