@@ -9,9 +9,21 @@ export function RootLayout() {
       <header className="bg-white shadow-lg border-b-4 border-indigo-500">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <h1 className="text-lg sm:text-xl font-bold text-indigo-900 text-center sm:text-left">
-              Sistema de Gerenciamento de Assinaturas
-            </h1>
+            <div className="flex items-center gap-3">
+              <img 
+                src="/logo.svg" 
+                alt="SubsManager Logo" 
+                className="w-8 h-8"
+              />
+              <div>
+                <h1 className="text-lg sm:text-xl font-bold text-indigo-900 text-center sm:text-left">
+                  SubsManager
+                </h1>
+                <p className="text-xs text-indigo-600 hidden sm:block">
+                  Sistema de Gerenciamento de Assinaturas
+                </p>
+              </div>
+            </div>
             
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
               <nav className="flex gap-4 w-full sm:w-auto justify-center">
