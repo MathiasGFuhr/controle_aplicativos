@@ -17,8 +17,6 @@ export function SubscribersPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const { user } = useAuth();
-
   useEffect(() => {
     loadSubscribers();
   }, []);

@@ -78,17 +78,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
-  const signUp = async (email: string, password: string, name: string) => {
+  const signUp = async (email: string, password: string, name: string): Promise<void> => {
     try {
-      // Primeiro, criar o usuário
       const { data: authData, error: signUpError } = await supabase.auth.signUp({
         email,
         password,
-        options: {
-          data: {
-            name,
-          },
-        },
       });
 
       if (signUpError) {
@@ -103,52 +97,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         throw new Error('Falha ao criar usuário');
       }
 
-      console.log('Usuário criado:', authData.user);
-
-      // Depois, criar o perfil
-      const { data: profileData, error: profileError } = await supabase
+      // Criar o perfil do usuário
+      const { error: profileError } = await supabase
         .from('profiles')
         .insert({
           id: authData.user.id,
           name,
           email,
-        })
-        .select()
-        .single();
+        });
 
       if (profileError) {
-        console.error('Erro detalhado ao criar perfil:', profileError);
-        // Log adicional para debug
-        console.log('Dados tentando inserir:', {
-          id: authData.user.id,
-          name,
-          email,
-        });
-        throw new Error(profileError.message || 'Erro ao criar perfil do usuário');
+        throw new Error(profileError.message);
       }
 
-      console.log('Perfil criado:', profileData);
-
-      // Atualizar o estado do usuário
       setUser(authData.user);
-      return authData;
     } catch (error: any) {
-      console.error('Erro completo:', error);
-      // Log adicional para debug
-      if (error.code) {
-        console.error('Código do erro:', error.code);
-      }
-      if (error.details) {
-        console.error('Detalhes do erro:', error.details);
-      }
-      if (error.hint) {
-        console.error('Dica do erro:', error.hint);
-      }
-
-      if (error.message === 'COOLDOWN_ERROR') {
-        throw error;
-      }
-      throw new Error(error.message || 'Erro ao criar conta. Tente novamente mais tarde.');
+      console.error('Erro ao criar conta:', error);
+      throw error;
     }
   };
 
