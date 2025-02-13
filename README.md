@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# 🔐 SubsManager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SubsManager é um sistema de gerenciamento de assinaturas que permite controlar assinantes, status de pagamento e vencimentos de forma intuitiva e eficiente. 
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🚀 Acesse o projeto:
+🔗 [SubsManager - Clique aqui para acessar](https://controle-aplicativos.vercel.app/login)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 🔧 Tecnologias Utilizadas
+- **TypeScript**: Para tipagem segura e melhor manutenção do código.
+- **Tailwind CSS**: Para estilização moderna e responsiva.
+- **Supabase**: Como backend para armazenar e gerenciar os assinantes.
+- **Vercel**: Para hospedagem e deploy rápido.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### ⚙️ Funcionalidades
+- **Gerenciamento de Assinantes**: Adicione, edite e remova assinantes facilmente.
+- **Status de Assinatura**: Classifica os assinantes em "Ativos", "Próximos ao Vencimento" e "Vencidos".
+- **Interface Intuitiva**: Design limpo e responsivo para uma melhor experiência do usuário.
+- **Autenticação**: Controle de login e segurança dos dados.
+- **Cadastro e Login**: Os usuários podem se cadastrar e fazer login para acessar o sistema.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 📸 Screenshot
+![Tela Principal](/src/assets/subsManager.png)
+![Tela Login](/src/assets/subsManagerLogin.png)
+![Tela Cadastro](/src/assets/subsManagerCadastro.png)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+---
+
+### 📄 Licença
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+### 👤 Autor
+**Mathias Fuhr**  
+- 🌐 [LinkedIn](https://www.linkedin.com/in/mathiasgilvanfuhr/)  
+- 📧 mathiasgfuhr@gmail.com
+
